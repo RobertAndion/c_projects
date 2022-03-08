@@ -15,7 +15,11 @@ int main()
   for (; i < CUSTOMER_AMOUNT; i++)
   {
     reading_writing(7000);
-    pthread_create(&customer_threads, NULL, customer, rw);
+    // Create customer specific
+    customer_wrapper_t *cust = malloc(sizeof(customer_wrapper_t));
+    cust->value = i;
+    cust->rw = rw; 
+    pthread_create(&customer_threads, NULL, customer, cust); // problem line
   }
 
   pthread_join(barber_thread, NULL);
