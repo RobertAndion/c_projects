@@ -16,7 +16,7 @@ typedef struct {
 } customers_waiting_lock_t;
 
 typedef struct {
-    int value; // customer number
+    int * value; // customer number
     customers_waiting_lock_t *rw;
 } customer_wrapper_t;
 

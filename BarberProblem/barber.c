@@ -16,7 +16,7 @@ void* customer(void * wrv) {
             rw->waitingCount++;
             sem_post(&rw->lock);
             sem_wait(&rw->customersWaiting);
-            printf("Customer %d being cut.\n", customer_info->value);
+            printf("Customer %d being cut.\n", *customer_info->value);
             sem_post(&rw->barberSleeping); // Wake barber
         }
     } else {
@@ -24,7 +24,7 @@ void* customer(void * wrv) {
         sem_post(&rw->lock);
         sem_wait(&rw->customersWaiting);
         // Woke up from queue
-        printf("Customer %d being cut.\n", customer_info->value);
+        printf("Customer %d being cut.\n", *customer_info->value);
         sem_post(&rw->barberSleeping); // Wake barber
     }
         

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "barber.h"
 #include <pthread.h>
 
@@ -17,7 +18,8 @@ int main()
     reading_writing(7000);
     // Create customer specific
     customer_wrapper_t *cust = malloc(sizeof(customer_wrapper_t));
-    cust->value = i;
+    cust->value = malloc(sizeof(int));
+    *cust->value = i;
     cust->rw = rw; 
     pthread_create(&customer_threads, NULL, customer, cust); // problem line
   }
