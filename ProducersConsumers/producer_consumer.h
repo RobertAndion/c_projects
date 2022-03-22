@@ -5,8 +5,8 @@
 #include <time.h>
 
 #define PRODUCER_COUNT 50
-#define CONSUMER_COUNT 45
-#define BUFFER_SIZE 10
+#define CONSUMER_COUNT 50
+#define BUFFER_SIZE 10 // Usable size will be n-1
 
 typedef struct
 {
