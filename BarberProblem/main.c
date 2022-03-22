@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "barber.h"
 #include <pthread.h>
+#include "barber.h"
 
 #define CUSTOMER_AMOUNT 10
 
