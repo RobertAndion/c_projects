@@ -1,7 +1,8 @@
-#ifndef __DATA__STRUCTURES__
-#define __DATA__STRUCTURES__
+#ifndef __PRODUCER__CONSUMER__H__
+#define __PRODUCER__CONSUMER__H__
 
 #include <semaphore.h>
+#include <time.h>
 
 #define PRODUCER_COUNT 50
 #define CONSUMER_COUNT 45
@@ -21,5 +22,10 @@ typedef struct
   int *identifier;
   bounded_buffer_t *buffer_reference;
 } myargs_t;
+
+void *producer(void *);
+void *consumer(void *);
+void initialize_bounded_buffer(bounded_buffer_t *);
+long reading_writing();
 
 #endif
